@@ -8,15 +8,15 @@ public class Game {
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
-    
+
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
     LinkedList sportsQuestions = new LinkedList();
     LinkedList rockQuestions = new LinkedList();
-    
+
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
-    
+
     public  Game(){
     	for (int i = 0; i < 50; i++) {
 			popQuestions.addLast("Pop Question " + i);
@@ -115,6 +115,7 @@ public class Game {
 	public boolean wasCorrectlyAnswered() {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
+				inPenaltyBox[currentPlayer] = false;
 				System.out.println("Answer was correct!!!!");
 				purses[currentPlayer]++;
 				System.out.println(players.get(currentPlayer) 
